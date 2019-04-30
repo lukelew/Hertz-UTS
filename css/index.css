@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  background: #345165;
+}
+
+.home img {
+  width: 120px;
+}
+
+#slider {
+  width: 1100px;
+  margin: 0 auto;
+  height: 360px;
+  background: #eee;
+}
+
+#slider img {
+  width: 100%;
+}
+
+/*# sourceMappingURL=index.css.map */

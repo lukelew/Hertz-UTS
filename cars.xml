@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Hertz-UTS>
+	<!-- sedan -->
+	<Sedan>
+		<car model="sonata">
+			<category></category>
+			<availability></availability>
+			<brand></brand>
+			<model></model>
+			<model_year></model_year>
+			<mileage></mileage>
+			<fuel_type></fuel_type>
+			<seats></seats>
+			<price_per_day></price_per_day>
+			<description></description>
+		</car>
+		<car model="golf">
+			<category></category>
+			<availability></availability>
+			<brand></brand>
+			<model></model>
+			<model_year></model_year>
+			<mileage></mileage>
+			<fuel_type></fuel_type>
+			<seats></seats>
+			<price_per_day></price_per_day>
+			<description></description>
+		</car>
+		<car model="civic">
+			<category></category>
+			<availability></availability>
+			<brand></brand>
+			<model></model>
+			<model_year></model_year>
+			<mileage></mileage>
+			<fuel_type></fuel_type>
+			<seats></seats>
+			<price_per_day></price_per_day>
+			<description></description>
+		</car>
+		<car model="camry">
+			<category></category>
+			<availability></availability>
+			<brand></brand>
+			<model></model>
+			<model_year></model_year>
+			<mileage></mileage>
+			<fuel_type></fuel_type>
+			<seats></seats>
+			<price_per_day></price_per_day>
+			<description></description>
+		</car>
+		<car model="320i">
+			<category></category>
+			<availability></availability>
+			<brand></brand>
+			<model></model>
+			<model_year></model_year>
+			<mileage></mileage>
+			<fuel_type></fuel_type>
+			<seats></seats>
+			<price_per_day></price_per_day>
+			<description></description>
+		</car>
+	</Sedan>
+	<!-- wagon -->
+	<Wagon>
+		<car model="Jimny">
+			<category></category>
+			<availability></availability>
+			<brand></brand>
+			<model></model>
+			<model_year></model_year>
+			<mileage></mileage>
+			<fuel_type></fuel_type>
+			<seats></seats>
+			<price_per_day></price_per_day>
+			<description></description>
+		</car>
+		<car model="captive">
+			<category></category>
+			<availability></availability>
+			<brand></brand>
+			<model></model>
+			<model_year></model_year>
+			<mileage></mileage>
+			<fuel_type></fuel_type>
+			<seats></seats>
+			<price_per_day></price_per_day>
+			<description></description>
+		</car>
+	</Wagon>
+	<!-- suv -->
+	<SUV>
+		<car model="X-trail">
+			<category></category>
+			<availability></availability>
+			<brand></brand>
+			<model></model>
+			<model_year></model_year>
+			<mileage></mileage>
+			<fuel_type></fuel_type>
+			<seats></seats>
+			<price_per_day></price_per_day>
+			<description></description>
+		</car>
+		<car model="GLC">
+			<category></category>
+			<availability></availability>
+			<brand></brand>
+			<model></model>
+			<model_year></model_year>
+			<mileage></mileage>
+			<fuel_type></fuel_type>
+			<seats></seats>
+			<price_per_day></price_per_day>
+			<description></description>
+		</car>
+		<car model="Cherokee">
+			<category></category>
+			<availability></availability>
+			<brand></brand>
+			<model></model>
+			<model_year></model_year>
+			<mileage></mileage>
+			<fuel_type></fuel_type>
+			<seats></seats>
+			<price_per_day></price_per_day>
+			<description></description>
+		</car>
+	</SUV>
+</Hertz-UTS>
