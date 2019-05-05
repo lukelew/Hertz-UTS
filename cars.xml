@@ -2,130 +2,132 @@
 <Hertz-UTS>
 	<!-- sedan -->
 	<Sedan>
-		<car model="sonata">
-			<category></category>
-			<availability></availability>
-			<brand></brand>
-			<model></model>
-			<model_year></model_year>
-			<mileage></mileage>
-			<fuel_type></fuel_type>
-			<seats></seats>
-			<price_per_day></price_per_day>
+		<car id="1001">
+			<category>sedan</category>
+			<availability>True</availability>
+			<brand>Hyundai</brand>
+			<model>sonata</model>
+			<model_year>2013</model_year>
+			<mileage>77892</mileage>
+			<fuel_type>petrol</fuel_type>
+			<seats>5</seats>
+			<price_per_day>120</price_per_day>
 			<description></description>
 		</car>
-		<car model="golf">
-			<category></category>
-			<availability></availability>
-			<brand></brand>
-			<model></model>
-			<model_year></model_year>
-			<mileage></mileage>
-			<fuel_type></fuel_type>
-			<seats></seats>
-			<price_per_day></price_per_day>
+		<car id="1002">
+			<category>sedan</category>
+			<availability>True</availability>
+			<brand>Volkswagen</brand>
+			<model>golf</model>
+			<model_year>2015</model_year>
+			<mileage>25321</mileage>
+			<fuel_type>petrol</fuel_type>
+			<seats>5</seats>
+			<price_per_day>210</price_per_day>
 			<description></description>
 		</car>
-		<car model="civic">
-			<category></category>
-			<availability></availability>
-			<brand></brand>
-			<model></model>
-			<model_year></model_year>
-			<mileage></mileage>
-			<fuel_type></fuel_type>
-			<seats></seats>
-			<price_per_day></price_per_day>
+		<car id="1003">
+			<category>sedan</category>
+			<availability>True</availability>
+			<brand>Honda</brand>
+			<model>civic</model>
+			<model_year>2017</model_year>
+			<mileage>20130</mileage>
+			<fuel_type>petrol</fuel_type>
+			<seats>5</seats>
+			<price_per_day>180</price_per_day>
 			<description></description>
 		</car>
-		<car model="camry">
-			<category></category>
-			<availability></availability>
-			<brand></brand>
-			<model></model>
-			<model_year></model_year>
-			<mileage></mileage>
-			<fuel_type></fuel_type>
-			<seats></seats>
-			<price_per_day></price_per_day>
+		<car id="1004">
+			<category>sedan</category>
+			<availability>True</availability>
+			<brand>Toyota</brand>
+			<model>camry</model>
+			<model_year>2018</model_year>
+			<mileage>18930</mileage>
+			<fuel_type>petrol</fuel_type>
+			<seats>5</seats>
+			<price_per_day>150</price_per_day>
 			<description></description>
 		</car>
-		<car model="320i">
-			<category></category>
-			<availability></availability>
-			<brand></brand>
-			<model></model>
-			<model_year></model_year>
-			<mileage></mileage>
-			<fuel_type></fuel_type>
-			<seats></seats>
-			<price_per_day></price_per_day>
+		<car id="1005">
+			<category>sedan</category>
+			<availability>True</availability>
+			<brand>BMW</brand>
+			<model>320i</model>
+			<model_year>2019</model_year>
+			<mileage>4398</mileage>
+			<fuel_type>petrol</fuel_type>
+			<seats>5</seats>
+			<price_per_day>260</price_per_day>
 			<description></description>
 		</car>
 	</Sedan>
+
 	<!-- wagon -->
 	<Wagon>
-		<car model="Jimny">
-			<category></category>
-			<availability></availability>
-			<brand></brand>
-			<model></model>
-			<model_year></model_year>
-			<mileage></mileage>
-			<fuel_type></fuel_type>
-			<seats></seats>
-			<price_per_day></price_per_day>
+		<car id="2001">
+			<category>wagon</category>
+			<availability>False</availability>
+			<brand>Suzuki</brand>
+			<model>Jimny</model>
+			<model_year>2019</model_year>
+			<mileage>2001</mileage>
+			<fuel_type>diesel</fuel_type>
+			<seats>7</seats>
+			<price_per_day>140</price_per_day>
 			<description></description>
 		</car>
-		<car model="captive">
-			<category></category>
-			<availability></availability>
-			<brand></brand>
-			<model></model>
-			<model_year></model_year>
-			<mileage></mileage>
-			<fuel_type></fuel_type>
-			<seats></seats>
-			<price_per_day></price_per_day>
+		<car id="2002">
+			<category>wagon</category>
+			<availability>True</availability>
+			<brand>Holden</brand>
+			<model>captiva</model>
+			<model_year>2018</model_year>
+			<mileage>6230</mileage>
+			<fuel_type>petrol</fuel_type>
+			<seats>7</seats>
+			<price_per_day>200</price_per_day>
 			<description></description>
 		</car>
 	</Wagon>
+
 	<!-- suv -->
 	<SUV>
-		<car model="X-trail">
-			<category></category>
-			<availability></availability>
-			<brand></brand>
-			<model></model>
-			<model_year></model_year>
-			<mileage></mileage>
-			<fuel_type></fuel_type>
-			<seats></seats>
-			<price_per_day></price_per_day>
+		<car id="3001">
+			<category>suv</category>
+			<availability>False</availability>
+			<brand>Nissan</brand>
+			<model>X-trail</model>
+			<model_year>2016</model_year>
+			<mileage>27675</mileage>
+			<fuel_type>petrol</fuel_type>
+			<seats>7</seats>
+			<price_per_day>170</price_per_day>
 			<description></description>
 		</car>
-		<car model="GLC">
-			<category></category>
-			<availability></availability>
-			<brand></brand>
-			<model></model>
-			<model_year></model_year>
-			<mileage></mileage>
-			<fuel_type></fuel_type>
-			<seats></seats>
-			<price_per_day></price_per_day>
+		<car id="3002">
+			<category>suv</category>
+			<availability>True</availability>
+			<brand>Mercedes-Benz</brand>
+			<model>GLC</model>
+			<model_year>2016</model_year>
+			<mileage>40436</mileage>
+			<fuel_type>petrol</fuel_type>
+			<seats>7</seats>
+			<price_per_day>280</price_per_day>
 			<description></description>
 		</car>
-		<car model="Cherokee">
-			<category></category>
-			<availability></availability>
-			<brand></brand>
-			<model></model>
-			<model_year></model_year>
-			<mileage></mileage>
-			<fuel_type></fuel_type>
-			<seats></seats>
-			<price_per_day></price_per_day>
+		<car id="3003">
+			<category>suv</category>
+			<availability>False</availability>
+			<brand>Jeep</brand>
+			<model>Cherokee</model>
+			<model_year>2018</model_year>
+			<mileage>6481</mileage>
+			<fuel_type>petrol</fuel_type>
+			<seats>7</seats>
+			<price_per_day>230</price_per_day>
 			<description></description>
 		</car>
 	</SUV>

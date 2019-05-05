@@ -3,25 +3,59 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Hertz-UTS by Qun Lu 13298498</title>
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link rel="stylesheet" href="css/index.css">
-	<script src="https://unpkg.com/react@16.9.0-alpha.0/umd/react.development.js" crossorigin></script>
-	<script src="https://unpkg.com/react-dom@16.9.0-alpha.0/umd//react-dom.development.js" crossorigin></script>
-	<!-- <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
 </head>
 <body>
 	<div id="root">
 		<header>
-			<div class="home">
-				<a href="javascript:void(0);"><img src="images/logo.jpeg" alt="logo"></a>
+			<div class="inner">
+				<div class="home">
+					<a class="logo" href="javascript:void(0);"></a>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="javascript:void(0)">Home</a></li>
+						<li><a href="javascript:void(0)">Our cars</a></li>
+						<li><a href="javascript:void(0)">About us</a></li>
+						<li><a href="javascript:void(0)">Contact us</a></li>
+					</ul>
+				</nav>
+				<a href="" id="to_cart">Car Reservation</a>
 			</div>
-			<nav></nav>
 		</header>
 		<div id="slider">
 			<img src="images/slider.jpg">
 		</div>
+		<div id="car_list">
+			<ul>
+				<li class="car" v-for="car in cars">
+					<div class="img_box">
+						<img v-bind:src="'images/'+car[3]+'.jpg'">
+					</div>
+					<div class="info">
+						<h3>{{car[3]}}</h3>
+						<dl>
+							<dt>Mileage</dt>
+							<dd>{{car[5].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}}</dd>
+							<dt>Seats</dt>
+							<dd>{{car[7]}}</dd>
+							<dt>Fuel type</dt>
+							<dd>{{car[6]}}</dd>
+							<dt>Model Year</dt>
+							<dd>{{car[4]}}</dd>
+							<dt class="available">Availability</dt>
+							<dd class="available">{{car[1]}}</dd>
+							<dt class="price">Price per day</dt>
+							<dd class="price">{{car[8]}}</dd>
+						</dl>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</div>
-	
+	<script src="js/index.js"></script>
 </body>
 </html>
