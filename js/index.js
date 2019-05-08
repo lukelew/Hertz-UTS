@@ -1,23 +1,38 @@
 function modifyXml(oldArr){
-	var oldArr = oldArr.trim().split('\n');
-	var newArr = oldArr.map(x => x.trim());
+	var	oldArr = oldArr.trim().split('\n');
+	var	newArr = oldArr.map( x => {
+		let ele = x.trim();
+		if(ele === 'True'){
+			ele = true;
+		}
+		else if( ele === 'False'){
+			ele = false;
+		}
+		return ele
+	});
 	return newArr;
 }
-var carArr = new Array();
 
+var carData = {};
 
-var xml = new XMLHttpRequest();
-xml.open('GET','cars.xml',false);
-xml.onload = e => {
-	var xmlDoc = xml.responseXML;
-	var carTags = xmlDoc.getElementsByTagName('car');
-	for(let i =0; i < carTags.length; i++ ){
-		carArr[i] = modifyXml(carTags[i].textContent);
+function getCars(){
+	var carArr = new Array();
+
+	var xml = new XMLHttpRequest();
+	xml.open('GET','cars.xml',false);
+	xml.onload = e => {
+		var xmlDoc = xml.responseXML;
+		var carTags = xmlDoc.getElementsByTagName('car');
+		for(var i =0; i < carTags.length; i++ ){
+			carArr[i] = modifyXml(carTags[i].textContent);
+			carArr[i].push(carTags[i].id);
+		}
 	}
-}
-xml.send();
+	xml.send();
 
-var carData = Object.assign({}, carArr);
+	carData = Object.assign({}, carArr);
+}
+getCars();
 
 var hertz = new Vue({
 	el: '#car_list',
@@ -25,7 +40,6 @@ var hertz = new Vue({
 		cars: carData
 	}
 })
-
 
 var throttle = (func, wait, mustRun) => {
     var timeout,
@@ -37,11 +51,9 @@ var throttle = (func, wait, mustRun) => {
             curTime = new Date();
  
         clearTimeout(timeout);
-        // 如果达到了规定的触发时间间隔，触发 handler
         if(curTime - startTime >= mustRun){
             func.apply(context,args);
             startTime = curTime;
-        // 没达到触发间隔，重新设定定时器
         }else{
             timeout = setTimeout(func, wait);
         }
@@ -58,4 +70,39 @@ var fixNav = ()=>{
 	}
 }
 
-window.addEventListener('scroll',throttle(fixNav,60,1000))
+window.addEventListener('scroll',throttle(fixNav,60,1000));
+
+
+// rent btn
+function updateCar(carId){
+	var carId = carId;
+	var xml = new XMLHttpRequest();
+	xml.open('GET','updateCart.php?carId='+carId,false);
+	xml.send();
+}
+
+var carList = document.querySelector('#car_list');
+carList.addEventListener('click', (e)=>{
+	var curId = e.target.dataset.id;
+	if(e.target.classList.contains('rent_button') && !e.target.classList.contains('active')){
+		warningBox('Sorry, the car is not available now. Please try other cars');
+	}
+	else{
+		updateCar(curId);
+	}
+})
+
+function warningBox(text){
+	var warningBox = document.querySelector('#warning');
+	var contentBox = document.querySelector('#warning strong');
+
+	contentBox.innerText = text;
+	warningBox.classList.add('active');
+
+	var toggleWarning = function(){
+		warningBox.classList.remove('active');
+	}
+
+	clearTimeout(toggleWarning);
+	setTimeout(toggleWarning, 3000);
+}

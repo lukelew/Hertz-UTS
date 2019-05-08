@@ -6,7 +6,7 @@
 			<category>sedan</category>
 			<availability>True</availability>
 			<brand>Hyundai</brand>
-			<model>sonata</model>
+			<model>Sonata</model>
 			<model_year>2013</model_year>
 			<mileage>77892</mileage>
 			<fuel_type>petrol</fuel_type>
@@ -18,7 +18,7 @@
 			<category>sedan</category>
 			<availability>True</availability>
 			<brand>Volkswagen</brand>
-			<model>golf</model>
+			<model>Golf</model>
 			<model_year>2015</model_year>
 			<mileage>25321</mileage>
 			<fuel_type>petrol</fuel_type>
@@ -30,7 +30,7 @@
 			<category>sedan</category>
 			<availability>True</availability>
 			<brand>Honda</brand>
-			<model>civic</model>
+			<model>Civic</model>
 			<model_year>2017</model_year>
 			<mileage>20130</mileage>
 			<fuel_type>petrol</fuel_type>
@@ -42,7 +42,7 @@
 			<category>sedan</category>
 			<availability>True</availability>
 			<brand>Toyota</brand>
-			<model>camry</model>
+			<model>Camry</model>
 			<model_year>2018</model_year>
 			<mileage>18930</mileage>
 			<fuel_type>petrol</fuel_type>
@@ -82,7 +82,7 @@
 			<category>wagon</category>
 			<availability>True</availability>
 			<brand>Holden</brand>
-			<model>captiva</model>
+			<model>Captiva</model>
 			<model_year>2018</model_year>
 			<mileage>6230</mileage>
 			<fuel_type>petrol</fuel_type>

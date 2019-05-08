@@ -13,17 +13,17 @@
 		<header>
 			<div class="inner">
 				<div class="home">
-					<a class="logo" href="javascript:void(0);"></a>
+					<a class="logo" href="index.html"></a>
 				</div>
 				<nav>
 					<ul>
-						<li><a href="javascript:void(0)">Home</a></li>
+						<li><a href="index.html">Home</a></li>
 						<li><a href="javascript:void(0)">Our cars</a></li>
 						<li><a href="javascript:void(0)">About us</a></li>
 						<li><a href="javascript:void(0)">Contact us</a></li>
 					</ul>
 				</nav>
-				<a href="" id="to_cart">Car Reservation</a>
+				<a href="car_rental_center.html" id="to_cart">Car Reservation</a>
 			</div>
 		</header>
 		<div id="slider">
@@ -51,11 +51,21 @@
 							<dt class="price">Price per day</dt>
 							<dd class="price">{{car[8]}}</dd>
 						</dl>
+						<a class="rent_button" :class="{active: car[1]}" :data-id="car[9]">Rent this car</a>
 					</div>
 				</li>
 			</ul>
 		</div>
 	</div>
+	
+	<!-- warning box -->
+	<div id="warning">
+		<p>
+			<i class="far fa-laugh-wink"></i>
+			<strong></strong>
+		</p>
+	</div>
+
 	<script src="js/index.js"></script>
 </body>
 </html>
