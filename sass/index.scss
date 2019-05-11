@@ -16,7 +16,7 @@ header{
 	width: 100%;
 	height: 80px;
 	z-index: 10;
-	transition: height .3s ease-in;
+	transition: height .3s linear;
 }
 header .inner{
 	display: grid;
@@ -92,7 +92,38 @@ header.active .home .logo{
 #slider img{
 	width: 100%;
 }
-
+#slider h2{
+	position: absolute;
+	left: 50%;
+	top: 200px;
+	z-index: 5;
+	margin: 0 0 0 -500px;
+	color: #fff;
+	font-size: 50px;
+	opacity: 0;
+	animation: titleIn 1 1s ease forwards;
+}
+#slider h3{
+	position: absolute;
+	left: 50%;
+	top: 260px;
+	z-index: 5;
+	margin: 0 0 0 -500px;
+	color: #fff;
+	font-size: 50px;
+	opacity: 0;
+	animation: titleIn 1 1s .3s ease forwards;
+}
+@keyframes titleIn {
+	from{
+		opacity: 0;
+		transform: translate(20px,-10px);
+	}
+	to{
+		opacity: 1;
+		transform: translate(0,0);
+	}
+}
 // car list
 #car_list{
 	width: 90%;
@@ -168,11 +199,26 @@ header.active .home .logo{
 }
 #car_list .car .rent_button.active:hover{
 }
+
+#intro{
+	display: grid;
+}
+
+
+footer{
+	background: #999;
+}
+footer .inner{
+	width: 90%;
+	height: 280px;
+	margin: 0 auto;
+}
+
 #warning{
 	visibility: hidden;
 	opacity: 0;
 	position: fixed;
-	top: 50px;
+	top: 60px;
 	left: 50%;
 	margin: 0 0 0 -220px;
 	width: 440px;

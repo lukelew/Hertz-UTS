@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Hertz-UTS>
-	<!-- sedan -->
 	<Sedan>
 		<car id="1001">
 			<category>sedan</category>
@@ -63,8 +62,6 @@
 			<description></description>
 		</car>
 	</Sedan>
-
-	<!-- wagon -->
 	<Wagon>
 		<car id="2001">
 			<category>wagon</category>
@@ -91,8 +88,6 @@
 			<description></description>
 		</car>
 	</Wagon>
-
-	<!-- suv -->
 	<SUV>
 		<car id="3001">
 			<category>suv</category>

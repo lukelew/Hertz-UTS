@@ -6,11 +6,14 @@
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link rel="stylesheet" href="css/car_rental_center.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<script src="js/car_rental_center.js"></script>
+	</style>
 </head>
 <body>
 	<header>
 		<div class="inner">
+			<div class="home">
+				<a class="logo" href="index.html"></a>
+			</div>
 			<h1>Car Rental Center</h1>
 		</div>
 	</header>
@@ -26,26 +29,19 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<tr v-for="car in car_list">
 					<td class="pic">
-						<img src="images/Sonata.jpg" alt="">
+						<img v-bind:src="'images/'+car[3]+'.jpg'">
 					</td>
-					<td>Sonata</td>
-					<td>130</td>
-					<td><input type="number"></td>
-					<td>x</td>
-				</tr>
-				<tr>
-					<td class="pic">
-						<img src="images/Golf.jpg" alt="">
-					</td>
-					<td>golf</td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>{{car[3]}}</td>
+					<td>{{car[8]}}</td>
+					<td><input type="number" min="1" max="31"></td>
+					<td><a href="javascript:void(0);" class="delete" v-on:click="deleteCars(car[9])">Delete</a></td>
 				</tr>
 			</tbody>
-		</table>		
+		</table>
+		<a href="javascript:void(0)" id="purchase">Check Out</a>	
 	</div>
+	<script src="js/car_rental_center.js"></script>
 </body>
 </html>

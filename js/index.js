@@ -60,6 +60,7 @@ var throttle = (func, wait, mustRun) => {
     };
 };
 
+// control the header to slide down
 var header = document.querySelector('header')
 var fixNav = ()=>{
 	if(window.scrollY>5){
@@ -78,6 +79,15 @@ function updateCar(carId){
 	var carId = carId;
 	var xml = new XMLHttpRequest();
 	xml.open('GET','updateCart.php?carId='+carId,false);
+	xml.onload = e => {
+		var res = e.target.response;
+		if(res == 1){
+			warningBox('This car has been added successfully')
+		}
+		else if(res == 2){
+			warningBox('This car is already reserved')
+		}
+	};
 	xml.send();
 }
 
@@ -92,6 +102,7 @@ carList.addEventListener('click', (e)=>{
 	}
 })
 
+// warning information box
 function warningBox(text){
 	var warningBox = document.querySelector('#warning');
 	var contentBox = document.querySelector('#warning strong');

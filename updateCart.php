@@ -5,22 +5,33 @@
 
 	session_start();
 
-	if(empty($_SESSION['cart'])){
-		$_SESSION['cart'] = array();
+	if(empty($_SESSION['carReserve'])){
+		$_SESSION['carReserve'] = array();
 	}
+	// if there is a id value
 	if($_GET['carId']){
-		foreach($_SESSION['cart'] as $key => $value){
+		foreach($_SESSION['carReserve'] as $key => $value){
 			if($value==$_GET['carId']){
 				$exist_id = $key;
 			}
 		}
 		if(isset($exist_id)){
-			$_SESSION['cart'][$exist_id] = $_GET['carId'];
+			$_SESSION['carReserve'][$exist_id] = $_GET['carId'];
+			echo 2;
 		}
 		else{
-			array_push($_SESSION['cart'], $_GET['carId']);
-		}	
+			array_push($_SESSION['carReserve'], $_GET['carId']);
+			echo 1;
+		}
 	}
-	echo json_encode($_SESSION['cart']);
-
+	// if there is a delete id
+	else if($_GET['deleteId']){
+		$key = array_search($_GET['deleteId'], $_SESSION['carReserve']);
+		unset($_SESSION['carReserve'][$key]);
+		echo json_encode($_SESSION['carReserve']);
+	}
+	// no id value
+	else{
+		echo json_encode($_SESSION['carReserve']);
+	}
 ?>

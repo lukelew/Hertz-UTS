@@ -1,4 +1,5 @@
 $main_yellow: #efcd4f;
+$main_dark_blue: #182879;
 
 *{
 	margin: 0;
@@ -6,26 +7,42 @@ $main_yellow: #efcd4f;
 	font-family: 'Raleway', sans-serif;
 	text-decoration: none;
 	list-style: none;
+	outline: none;
 }
 
 header{
 	background-image: linear-gradient( 135deg, #5EFCE8 10%, #736EFE 100%);
 }
 .inner{
-
+	position: relative;
+	width: 90%;
 	height: 60px;
+	margin: 0 auto;
 	text-align: center;
+}
+.home .logo{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 5;
+	width: 200px;
+	height: 56px;
+	background: url('../images/logo-white.png') no-repeat;
+	background-size: contain;
 }
 .inner h1{
 	color: #fff;
 	line-height: 60px;
 	font-size: 24px;
 }
-
-table{
+#car_table{
 	width: 800px;
 	margin: 0 auto;
 	padding: 40px 0 0 0;
+}
+table{
+	width: 100%;
+	border-collapse: collapse;
 }
 
 .pic{
@@ -33,6 +50,15 @@ table{
 }
 .pic img{
 	width: 100%;
+}
+th{
+	height: 20px;
+	margin: 10px 0;
+	color: #182878;
+	border-right: 1px #d6d6d6 solid;
+}
+th:nth-child(5){
+	border-right: none;
 }
 td{
 	text-align: center;
@@ -42,5 +68,24 @@ input[type="number"]{
 	padding: 4px 6px;
 	font-size: 18px;
 	border-radius: 5px;
+	border: 2px $main_dark_blue solid;
+	transition: all .3s ease;
+}
+input[type="number"]:focus{
 	border: 2px $main_yellow solid;
+}
+.delete{
+	color: #fff;
+	padding: 4px 6px;
+	background: #6dbcf3;
+	border-radius: 3px;
+	font-size: 13px;
+}
+
+#purchase{
+	float: right;
+	padding: 10px 20px;
+	color: #fff;
+	background: #f18787;
+	border-radius: 5px;
 }
