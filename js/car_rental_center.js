@@ -1,74 +1,72 @@
-function modifyXml(oldArr){
-	var	oldArr = oldArr.trim().split('\n');
-	var	newArr = oldArr.map( x => {
-		let ele = x.trim();
-		if(ele === 'True'){
-			ele = true;
-		}
-		else if( ele === 'False'){
-			ele = false;
-		}
-		return ele
-	});
-	return newArr;
-}
-
-var carData = {};
-var sessionCart = {};
-
+var carData = [];
 function getCars(){
-	var carArr = new Array();
+	var carArr = [];
 
 	var xml = new XMLHttpRequest();
-	xml.open('GET','cars.xml',false);
+	xml.open('GET','cars.xml', false);
 	xml.onload = e => {
 		var xmlDoc = xml.responseXML;
-		var carTags = xmlDoc.getElementsByTagName('car');
-		for(var i =0; i < carTags.length; i++ ){
-			carArr[i] = modifyXml(carTags[i].textContent);
-			carArr[i].push(carTags[i].id);
+		var rawCarTags = xmlDoc.getElementsByTagName('car');
+		for(var i =0; i < rawCarTags.length; i++ ){
+			let singleCar = {}
+			singleCar['id'] = rawCarTags[i].id
+			singleCar['counts'] = 1;
+
+			for(let j=0; j<rawCarTags[i].childNodes.length; j++){
+				if(rawCarTags[i].childNodes[j].nodeType == 3){
+					rawCarTags[i].removeChild(rawCarTags[i].childNodes[j])
+					j--;
+				}
+				else {
+					singleCar[rawCarTags[i].childNodes[j].nodeName] = rawCarTags[i].childNodes[j].innerHTML;
+				}
+			}
+			carData.push(singleCar);
 		}
 	}
 	xml.send();
-
-	carData = Object.assign({}, carArr);
 }
 getCars();
 
 // get car rent information from session
 function getSession(){
 	var xml = new XMLHttpRequest();
-	xml.open('get', 'updateCart.php', false);
-	xml.onload = e => {
-		sessionCart = e.target.response;
-	};
-	xml.onloadend = e => {	
+	xml.open('get', 'updateCart.php', true);
+	xml.onload = () => {	
+
 		var hertz = new Vue({
 			el: '#car_table',
 			data: {
 				cars: carData,
-				cart: sessionCart
+				cart: JSON.parse(xml.responseText)
 			},
 			computed: {
 				car_list: function(){
-					var carList = {};
+					var carList = [];
 					var length = Object.keys(this.cars).length;
-					for(let i = 0; i < length; i++){
-						if(this.cart.includes(this.cars[i][9])){
-							carList[i] = this.cars[i];
+					for(var i = 0; i < length; i++){
+						if(this.cart.includes(this.cars[i]['id'])){
+							let singleCar = this.cars[i];
+							carList.push(singleCar);
 						}
 					}
 					return carList;
+				},
+				total: function(){
+					return 1;
 				}
 			},
 			methods: {
 				deleteCars: function(id){
 					var xml = new XMLHttpRequest();
 					xml.open('get', 'updateCart.php?deleteId='+id, false);
-					xml.onloadend = e => {
-						this.cart = e.target.response;
+					xml.onload = e => {
+						this.cart = JSON.parse(xml.responseText)
 					}
 					xml.send();
+				},
+				checkOut: function(){
+					// console.log(this.cart)
 				}
 			}
 		})

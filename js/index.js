@@ -1,36 +1,29 @@
-function modifyXml(oldArr){
-	var	oldArr = oldArr.trim().split('\n');
-	var	newArr = oldArr.map( x => {
-		let ele = x.trim();
-		if(ele === 'True'){
-			ele = true;
-		}
-		else if( ele === 'False'){
-			ele = false;
-		}
-		return ele
-	});
-	return newArr;
-}
-
-var carData = {};
-
+var carData = [];
 function getCars(){
-	var carArr = new Array();
+	var carArr = [];
 
 	var xml = new XMLHttpRequest();
-	xml.open('GET','cars.xml',false);
+	xml.open('GET','cars.xml', false);
 	xml.onload = e => {
 		var xmlDoc = xml.responseXML;
-		var carTags = xmlDoc.getElementsByTagName('car');
-		for(var i =0; i < carTags.length; i++ ){
-			carArr[i] = modifyXml(carTags[i].textContent);
-			carArr[i].push(carTags[i].id);
+		var rawCarTags = xmlDoc.getElementsByTagName('car');
+
+		for(var i =0; i < rawCarTags.length; i++ ){
+			let singleCar = {}
+			singleCar['id'] = rawCarTags[i].id
+			for(let j=0; j<rawCarTags[i].childNodes.length; j++){
+				if(rawCarTags[i].childNodes[j].nodeType == 3){
+					rawCarTags[i].removeChild(rawCarTags[i].childNodes[j])
+					j--;
+				}
+				else {
+					singleCar[rawCarTags[i].childNodes[j].nodeName] = rawCarTags[i].childNodes[j].innerHTML;
+				}
+			}
+			carData.push(singleCar);
 		}
 	}
 	xml.send();
-
-	carData = Object.assign({}, carArr);
 }
 getCars();
 

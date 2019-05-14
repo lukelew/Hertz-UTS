@@ -35,25 +35,25 @@
 			<ul>
 				<li class="car" v-for="car in cars">
 					<div class="img_box">
-						<img v-bind:src="'images/'+car[3]+'.jpg'">
+						<img v-bind:src="'images/'+car.model+'.jpg'">
 					</div>
 					<div class="info">
-						<h3>{{car[3]}}</h3>
+						<h3>{{car.model}}</h3>
 						<dl>
 							<dt>Mileage</dt>
-							<dd>{{car[5].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}}</dd>
+							<dd>{{car.mileage.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}}</dd>
 							<dt>Seats</dt>
-							<dd>{{car[7]}}</dd>
+							<dd>{{car.seats}}</dd>
 							<dt>Fuel type</dt>
-							<dd>{{car[6]}}</dd>
+							<dd>{{car.fuel_type}}</dd>
 							<dt>Model Year</dt>
-							<dd>{{car[4]}}</dd>
+							<dd>{{car.model_year}}</dd>
 							<dt class="available">Availability</dt>
-							<dd class="available">{{car[1]}}</dd>
+							<dd class="available">{{car.availability}}</dd>
 							<dt class="price">Price per day</dt>
-							<dd class="price">{{car[8]}}</dd>
+							<dd class="price">{{car.price_per_day}}</dd>
 						</dl>
-						<a class="rent_button" :class="{active: car[1]}" :data-id="car[9]">Rent this car</a>
+						<a class="rent_button" :class="{active: car.availability=='True'}" :data-id="car.id">Rent this car</a>
 					</div>
 				</li>
 			</ul>

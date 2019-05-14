@@ -68,7 +68,7 @@ input[type="number"]{
 	padding: 4px 6px;
 	font-size: 18px;
 	border-radius: 5px;
-	border: 2px $main_dark_blue solid;
+	border: 2px #6cbcf3 solid;
 	transition: all .3s ease;
 }
 input[type="number"]:focus{
@@ -81,11 +81,52 @@ input[type="number"]:focus{
 	border-radius: 3px;
 	font-size: 13px;
 }
-
+.delete:hover{
+	background: #69d3ef;
+}
+.delete:active{
+	box-shadow: inset 0 0 7px 0px rgba(0, 0, 0, 0.2);
+  color: #182878;
+}
+#no_cars{
+	padding:80px 0;
+	text-align: center;
+}
+#no_cars p{
+	color: #ccc;
+	font-size: 30px;
+}
+#no_cars i{
+	padding: 0 6px;
+}
+#price{
+	display: block;
+	margin: 20px auto;
+	padding: 10px 0;
+	text-align: center;
+	border-top: 1px #d6d6d6 solid;
+}
+#price h4{
+	color: #848484;
+}
+#price strong{
+	padding: 0 10px;
+	font-size: 28px;
+	color: #f18786;
+}
 #purchase{
-	float: right;
+	display: block;
+	margin: 20px auto;
+	width: 200px;
 	padding: 10px 20px;
 	color: #fff;
+	text-align: center;
 	background: #f18787;
 	border-radius: 5px;
+}
+#purchase:hover{
+	background: #ff9494;
+}
+#purchase:active{
+	background: #d87272;
 }

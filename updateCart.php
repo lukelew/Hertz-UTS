@@ -27,7 +27,7 @@
 	// if there is a delete id
 	else if($_GET['deleteId']){
 		$key = array_search($_GET['deleteId'], $_SESSION['carReserve']);
-		unset($_SESSION['carReserve'][$key]);
+		array_splice($_SESSION['carReserve'], $key ,1);
 		echo json_encode($_SESSION['carReserve']);
 	}
 	// no id value

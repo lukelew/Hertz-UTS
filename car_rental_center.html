@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Car Rental Center | Hertz-UTS</title>
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/car_rental_center.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	</style>
@@ -31,16 +32,26 @@
 			<tbody>
 				<tr v-for="car in car_list">
 					<td class="pic">
-						<img v-bind:src="'images/'+car[3]+'.jpg'">
+						<img v-bind:src="'images/'+car.model+'.jpg'">
 					</td>
-					<td>{{car[3]}}</td>
-					<td>{{car[8]}}</td>
-					<td><input type="number" min="1" max="31"></td>
-					<td><a href="javascript:void(0);" class="delete" v-on:click="deleteCars(car[9])">Delete</a></td>
+					<td>{{car.model}}</td>
+					<td class="price_per_day">{{car.price_per_day}}</td>
+					<td><input type="number" min="1" max="31" v-model="count"></td>
+					<td><a href="javascript:void(0);" class="delete" v-on:click="deleteCars(car.id)">Delete</a></td>
 				</tr>
 			</tbody>
 		</table>
-		<a href="javascript:void(0)" id="purchase">Check Out</a>	
+		<div id="no_cars" v-show="car_list.length == 0">
+			<p><i class="far fa-surprise"></i>Ops. Your reservation is empty</p>
+		</div>
+		<div id="checkout">
+			<div id="price">
+				<h4>Total price:</h4>
+				<span>A$</span><strong>{{total}}</strong>
+			</div>
+			<a href="javascript:void(0)" id="purchase" v-on:click="checkOut()">Check Out</a>	
+		</div>
+		
 	</div>
 	<script src="js/car_rental_center.js"></script>
 </body>

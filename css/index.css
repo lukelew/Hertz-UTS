@@ -217,11 +217,17 @@ header.active .home .logo {
   border-radius: 5px;
   color: #fff;
   background: #ccc;
-  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 #car_list .car .rent_button.active {
   background-image: linear-gradient(135deg, #5EFCE8 10%, #736EFE 100%);
+}
+
+#car_list .car .rent_button.active:active {
+  transform: scale(0.8);
+  box-shadow: inset 0 0 7px 0px rgba(0, 0, 0, 0.2);
+  color: #182878;
 }
 
 #intro {
