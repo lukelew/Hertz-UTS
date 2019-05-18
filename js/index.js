@@ -31,6 +31,16 @@ var hertz = new Vue({
 	el: '#car_list',
 	data: {
 		cars: carData
+	},
+	methods: {
+		addToCart: function(curCar){
+			if(curCar.availability == 'False'){
+				warningBox('Sorry, the car is not available now. Please try other cars');
+			}
+			else{
+				updateCar(curCar);
+			}
+		}
 	}
 })
 
@@ -68,10 +78,9 @@ window.addEventListener('scroll',throttle(fixNav,60,1000));
 
 
 // rent btn
-function updateCar(carId){
-	var carId = carId;
+function updateCar(car){
 	var xml = new XMLHttpRequest();
-	xml.open('GET','updateCart.php?carId='+carId,false);
+	xml.open('POST','updateCart.php');
 	xml.onload = e => {
 		var res = e.target.response;
 		if(res == 1){
@@ -81,19 +90,9 @@ function updateCar(carId){
 			warningBox('This car is already reserved')
 		}
 	};
-	xml.send();
+	xml.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	xml.send(JSON.stringify(car));
 }
-
-var carList = document.querySelector('#car_list');
-carList.addEventListener('click', (e)=>{
-	var curId = e.target.dataset.id;
-	if(e.target.classList.contains('rent_button') && !e.target.classList.contains('active')){
-		warningBox('Sorry, the car is not available now. Please try other cars');
-	}
-	else{
-		updateCar(curId);
-	}
-})
 
 // warning information box
 function warningBox(text){

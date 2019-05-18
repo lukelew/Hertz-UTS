@@ -29,17 +29,27 @@
 					<th>Actions</th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr v-for="car in car_list">
+			<tbody name="change_list" is="transition-group">
+				<tr class="single_car" v-for="car in car_list" v-bind:key="car.id">
 					<td class="pic">
 						<img v-bind:src="'images/'+car.model+'.jpg'">
 					</td>
 					<td>{{car.model}}</td>
 					<td class="price_per_day">{{car.price_per_day}}</td>
-					<td><input type="number" min="1" max="31" v-model="count"></td>
-					<td><a href="javascript:void(0);" class="delete" v-on:click="deleteCars(car.id)">Delete</a></td>
+					<td><input type="number" min="1" max="31" v-model.number="car.counts"></td>
+					<td class="action">
+						<a href="javascript:void(0);" class="delete" v-on:click="car.deleteshow = !car.deleteshow">Delete</a>
+						<transition name="deletebox">
+							<div class="delete_box" v-show="car.deleteshow">
+							<p>Are you sure to delete this car?</p>
+							<a href="javascript:void(0)" v-on:click="deleteCars(car.id)">yes</a>
+							<a href="javascript:void(0)" v-on:click="car.deleteshow = !car.deleteshow">no</a>
+							<i></i>
+							</div>
+						</transition>
+					</td>
 				</tr>
-			</tbody>
+		</tbody>
 		</table>
 		<div id="no_cars" v-show="car_list.length == 0">
 			<p><i class="far fa-surprise"></i>Ops. Your reservation is empty</p>
@@ -50,8 +60,15 @@
 				<span>A$</span><strong>{{total}}</strong>
 			</div>
 			<a href="javascript:void(0)" id="purchase" v-on:click="checkOut()">Check Out</a>	
+			<a href="javascript:void(0)" id="clearCart" v-on:click="clearCart()">ClearCart</a>
 		</div>
 		
+	</div>
+	<!-- warning box -->
+	<div id="warning">
+		<p>
+			<strong></strong>
+		</p>
 	</div>
 	<script src="js/car_rental_center.js"></script>
 </body>

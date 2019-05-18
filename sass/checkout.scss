@@ -1,0 +1,180 @@
+$main_yellow: #efcd4f;
+$main_dark_blue: #182879;
+$border_blue: #6cbcf3;
+$main_red: #f18786;
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Raleway', sans-serif;
+	text-decoration: none;
+	list-style: none;
+	outline: none;
+}
+
+header{
+	background-image: linear-gradient( 135deg, #5EFCE8 10%, #736EFE 100%);
+}
+.inner{
+	position: relative;
+	width: 90%;
+	height: 60px;
+	margin: 0 auto;
+	text-align: center;
+}
+.home .logo{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 5;
+	width: 200px;
+	height: 56px;
+	background: url('../images/logo-white.png') no-repeat;
+	background-size: contain;
+}
+.inner h1{
+	color: #fff;
+	line-height: 60px;
+	font-size: 24px;
+}
+
+
+#info{
+	width: 220px;
+	margin: 0 auto;
+	padding: 30px 0 0 0;
+}
+.tips{
+	color: $main_red;
+}
+#info .row{
+	position: relative;
+	padding: 15px 0;
+	text-align: left;
+}
+#info .select_row{
+	padding: 30px 0 10px 0;
+}
+#info input{
+	box-sizing: border-box;
+	padding: 4px 12px;
+	color: #464a63;
+	font-size: 18px;
+	width: 220px;
+	border: 2px $border_blue solid;
+	border-radius: 5px;
+	background: transparent;
+}
+#info label{
+	position: absolute;
+	left: 10px;
+	top: 24px;
+	z-index: -1;
+	padding: 0 5px;
+	font-size: 14px;
+	color: $border_blue;
+	transition: all .2s ease;
+	white-space: nowrap;
+	background: #fff;
+}
+#info input:focus{
+	border-color: $main_yellow;
+}
+#info input:focus ~ label{
+	color: $main_yellow;
+	transform: translateY(-20px);
+	z-index: 2;
+}
+#info input:valid ~ label{
+	transform: translateY(-20px);
+	z-index: 2;
+}
+#info input[name="email"]{
+	width: 330px;
+}
+#info input[name="address"]{
+	width: 330px;
+}
+#info input[name="suburb"]{
+	width: 160px;
+}
+#info input[name="state"]{
+	width: 240px;
+}
+#info input[name="country"]{
+	width: 160px;
+}
+#info input[name="post_code"]{
+	width: 100px;
+}
+#info select[name="payment_type"]{
+	box-sizing: border-box;
+	padding: 4px 12px;
+	color: #464a63;
+	font-size: 18px;
+	width: 140px;
+	border: 2px $border_blue solid;
+	border-radius: 5px;
+	background: transparent;
+}
+#info select[name="payment_type"]~label{
+	top: 9px;
+	left: 0;
+}
+#feedback{
+	visibility: hidden;
+	width: 360px;
+	padding: 0 0 20px 0;
+
+	&.active{
+		visibility: visible;
+	}
+}
+#feedback i{
+	color: $main_red;
+}
+#feedback p{
+	display: inline-block;
+	color: $main_red;
+}
+#submit{
+	display: block;
+	margin: 20px auto;
+	width: 200px;
+	padding: 10px 20px;
+	color: #fff;
+	text-align: center;
+	background: #f18787;
+	border-radius: 5px;
+}
+#submit:hover{
+	background: #ff9494;
+}
+#submit:active{
+	background: #d87272;
+}
+#total{
+	width: 400px;
+
+	p{
+		color: #848484;
+	}
+	strong{
+		font-size: 24px;
+		color: #f18786;
+	}
+}
+
+// chrome input 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #464a63;
+	transition: background-color 5000s ease-in-out 0s;
+}

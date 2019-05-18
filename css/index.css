@@ -57,7 +57,7 @@ header #to_cart {
   grid-column: 4;
   place-self: center;
   font-size: 13px;
-  color: #182879;
+  color: #fff;
   padding: 8px 20px;
   background-image: linear-gradient(135deg, #5EFCE8 10%, #736EFE 100%);
   border-radius: 30px;
@@ -140,6 +140,7 @@ header.active .home .logo {
 #car_list {
   width: 90%;
   margin: 0 auto;
+  padding: 0 0 160px 0;
 }
 
 #car_list ul {
@@ -230,18 +231,53 @@ header.active .home .logo {
   color: #182878;
 }
 
-#intro {
-  display: grid;
-}
-
 footer {
-  background: #999;
+  background: #303033;
 }
 
 footer .inner {
-  width: 90%;
-  height: 280px;
+  display: grid;
+  grid-template-columns: 300px auto 530px;
+  width: 70%;
   margin: 0 auto;
+  padding: 40px 0 0 0;
+}
+
+footer .inner .left {
+  grid-column: 1;
+}
+
+footer .inner ul {
+  margin: 0 0 26px 0;
+}
+
+footer .inner ul li {
+  color: #fff;
+  font-size: 20px;
+  padding: 0 0 6px 0;
+}
+
+footer .inner ul li h3 {
+  color: #fff;
+  font-size: 24px;
+  padding: 0 0 5px 0;
+}
+
+.map {
+  grid-column: 3;
+}
+
+.map img {
+  border-radius: 5px;
+  width: 100%;
+  border: 10px #4c4c54 solid;
+}
+
+.copyright {
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  padding: 40px 0 10px 0;
 }
 
 #warning {
@@ -254,8 +290,7 @@ footer .inner {
   width: 440px;
   height: 40px;
   text-align: center;
-  background: #ffbbbb;
-  border: 1px #e09d9d solid;
+  background-image: linear-gradient(135deg, #FFF6B7 10%, #F6416C 100%);
   border-radius: 5px;
   transition: all 0.3s ease;
   transform: translateY(0);
@@ -268,17 +303,14 @@ footer .inner {
 }
 
 #warning p {
-  color: #6d3131;
+  color: #fff;
   height: 40px;
   line-height: 40px;
+  text-shadow: 0 0 2px #F6416C;
 }
 
 #warning p i {
   margin: 0 3px;
-}
-
-#warning p strong {
-  font-weight: normal;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -7,10 +7,11 @@ function getCars(){
 	xml.onload = e => {
 		var xmlDoc = xml.responseXML;
 		var rawCarTags = xmlDoc.getElementsByTagName('car');
-		for(var i =0; i < rawCarTags.length; i++ ){
+		for(let i =0; i < rawCarTags.length; i++ ){
 			let singleCar = {}
 			singleCar['id'] = rawCarTags[i].id
 			singleCar['counts'] = 1;
+			singleCar['deleteshow'] = 0;
 
 			for(let j=0; j<rawCarTags[i].childNodes.length; j++){
 				if(rawCarTags[i].childNodes[j].nodeType == 3){
@@ -31,42 +32,82 @@ getCars();
 // get car rent information from session
 function getSession(){
 	var xml = new XMLHttpRequest();
-	xml.open('get', 'updateCart.php', true);
+	xml.open('GET', 'updateCart.php', false);
 	xml.onload = () => {	
 
 		var hertz = new Vue({
 			el: '#car_table',
 			data: {
 				cars: carData,
-				cart: JSON.parse(xml.responseText)
+				cart: JSON.parse(xml.responseText),
 			},
 			computed: {
 				car_list: function(){
 					var carList = [];
-					var length = Object.keys(this.cars).length;
-					for(var i = 0; i < length; i++){
-						if(this.cart.includes(this.cars[i]['id'])){
-							let singleCar = this.cars[i];
-							carList.push(singleCar);
+					var carLength = this.cars.length;
+					var sessionLength = this.cart.length;
+					for(let i = 0; i < sessionLength; i++){
+						for(let j = 0; j < carLength; j++){
+							if(this.cart[i].id == this.cars[j]['id']){
+								let singleCar = this.cars[j];
+								carList.push(singleCar);
+							}
 						}
 					}
 					return carList;
 				},
 				total: function(){
-					return 1;
+					var total = 0;
+					for(let i=0; i< this.car_list.length; i++){
+						total += this.car_list[i].counts * this.car_list[i].price_per_day;
+					}
+					return total;
 				}
 			},
 			methods: {
+				pop_box: function(){
+
+				},
 				deleteCars: function(id){
 					var xml = new XMLHttpRequest();
-					xml.open('get', 'updateCart.php?deleteId='+id, false);
+					xml.open('GET', 'updateCart.php?deleteId='+id, false);
 					xml.onload = e => {
 						this.cart = JSON.parse(xml.responseText)
 					}
 					xml.send();
 				},
 				checkOut: function(){
-					// console.log(this.cart)
+					var cartLength = this.cart.length;
+					if(cartLength==0){
+						warningBox('There are no cars reservered')
+					}
+					else{
+						var data = [];
+						for(let i=0; i<this.car_list.length; i++){
+							data.push(
+								{ 'counts': this.car_list[i].counts,
+									'id': this.car_list[i].id
+								}
+							)
+						}
+						var sendCar = new XMLHttpRequest();
+						sendCar.open('POST', 'checkout.php');
+						sendCar.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+						sendCar.send(JSON.stringify(data));
+
+						var sendTotal = new XMLHttpRequest();
+						sendTotal.open('GET', 'getTotal.php?total='+this.total);
+						sendTotal.send();
+						document.location.href="checkout.html";
+					}
+				},
+				clearCart: function(){
+					var xml = new XMLHttpRequest();
+					xml.open('GET','clearCart.php', false);
+					xml.onload = e => {
+						this.cart = [];
+					}
+					xml.send();
 				}
 			}
 		})
@@ -75,4 +116,19 @@ function getSession(){
 }
 getSession();
 
+// warning information box
+function warningBox(text){
+	var warningBox = document.querySelector('#warning');
+	var contentBox = document.querySelector('#warning strong');
+
+	contentBox.innerText = text;
+	warningBox.classList.add('active');
+
+	var toggleWarning = function(){
+		warningBox.classList.remove('active');
+	}
+
+	clearTimeout(toggleWarning);
+	setTimeout(toggleWarning, 2500);
+}
 

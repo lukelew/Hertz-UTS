@@ -53,18 +53,36 @@
 							<dt class="price">Price per day</dt>
 							<dd class="price">{{car.price_per_day}}</dd>
 						</dl>
-						<a class="rent_button" :class="{active: car.availability=='True'}" :data-id="car.id">Rent this car</a>
+						<a class="rent_button" :class="{active: car.availability=='True'}" :data-id="car.id" v-on:click="addToCart(car)">Rent this car</a>
 					</div>
 				</li>
 			</ul>
 		</div>
 	</div>
 	
-	<div id="intro">
-		
-	</div>
 	<footer>
-		<div class="inner"></div>
+		<div class="inner">
+			<div class="left">
+				<ul class="webmap">
+				<li><h3>Web Maps</h3></li>
+				<li>Our cars</li>
+				<li>Our service</li>
+				<li>About us</li>
+				<li>Policy</li>
+			</ul>
+			<ul class="contact">
+				<li><h3>Contact us</h3></li>
+				<li>Phone: 0434 123 567</li>
+				<li>Fax: 0434 567 890</li>
+				<li>Email: info@Hert-uts.com</li>
+			</ul>
+			</div>
+			
+			<div class="map">
+				<img src="images/map@2x.png" alt="">
+			</div>
+		</div>
+		<p class="copyright">All rights reserved©️Hertz-UTS@2019.</p>
 	</footer>
 	<!-- warning box -->
 	<div id="warning">
