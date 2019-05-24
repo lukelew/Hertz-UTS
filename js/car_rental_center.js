@@ -79,7 +79,10 @@ function getSession(){
 				checkOut: function(){
 					var cartLength = this.cart.length;
 					if(cartLength==0){
-						warningBox('There are no cars reservered')
+						warningBox('There are no cars reservered',0)
+						var countDown = 4;
+						var count = setInterval(function(){warningBox('You will go back to home in '+countDown+'s',0); countDown--;},1000);
+						var jump = setTimeout(function(){document.location.href="index.html"}, 5000) ;
 					}
 					else{
 						var data = [];
@@ -117,7 +120,7 @@ function getSession(){
 getSession();
 
 // warning information box
-function warningBox(text){
+function warningBox(text, isFade){
 	var warningBox = document.querySelector('#warning');
 	var contentBox = document.querySelector('#warning strong');
 
@@ -128,7 +131,12 @@ function warningBox(text){
 		warningBox.classList.remove('active');
 	}
 
-	clearTimeout(toggleWarning);
-	setTimeout(toggleWarning, 2500);
+	if(isFade == 0){
+		return;
+	}
+	else{
+		clearTimeout(toggleWarning);
+		setTimeout(toggleWarning, 2500);
+	}
 }
 

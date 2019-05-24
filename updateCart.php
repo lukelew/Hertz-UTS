@@ -5,7 +5,7 @@
 
 	session_start();
 	$content = trim(file_get_contents("php://input"));
-	$new_car = json_decode($content);
+	$new_car = json_decode($content, true);
 
 	if(empty($_SESSION['carReserve'])){
 		$_SESSION['carReserve'] = array();

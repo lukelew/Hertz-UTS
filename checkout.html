@@ -3,10 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Check Out | Hertz-UTS</title>
+	<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/checkout.css">
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="js/vue.min.js"></script>
 </head>
 <body>
 	<header>
@@ -59,6 +60,12 @@
 			<p>You are required to pay: A$ <strong>{{total}}</strong></p>
 		</div>
 		<a href="javascript:void(0)" id="submit">Submit</a>
+	</div>
+	<!-- warning box -->
+	<div id="warning">
+		<p>
+			<strong></strong>
+		</p>
 	</div>
 	<script src="js/checkout.js"></script>
 </body>

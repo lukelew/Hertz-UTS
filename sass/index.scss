@@ -213,7 +213,7 @@ footer .inner{
 	grid-template-columns: 300px auto 530px;
 	width: 70%;
 	margin: 0 auto;
-	padding: 40px 0 0 0;
+	padding: 50px 0 40px 0;
 }
 footer .inner .left{
 	grid-column: 1;
@@ -222,7 +222,7 @@ footer .inner ul{
 	margin: 0 0 26px 0;
 }
 footer .inner ul li{
-	color: #fff;
+	color: #afa5a5;
 	font-size: 20px;
 	padding: 0 0 6px 0;
 }
@@ -243,7 +243,8 @@ footer .inner ul li h3{
 	text-align: center;
 	color: #fff;
 	font-size: 12px;
-	padding: 40px 0 10px 0;
+	padding: 10px 0;
+	background: #1e1e1f;
 }
 #warning{
 	visibility: hidden;

@@ -74,7 +74,7 @@ var fixNav = ()=>{
 	}
 }
 
-window.addEventListener('scroll',throttle(fixNav,60,1000));
+window.addEventListener('scroll',throttle(fixNav,30,1000));
 
 
 // rent btn

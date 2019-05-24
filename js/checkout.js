@@ -77,6 +77,15 @@ function validateForm(){
 		var xml = new XMLHttpRequest();
 		xml.open('POST', 'sendemail.php');
 		xml.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xml.onload = e => {
+			var res = e.target.response;
+			if(res == 1){
+				warningBox('The email has been sent to you successfully',0);
+				var countDown = 4;
+				var count = setInterval(function(){warningBox('You will go back to home in '+countDown+'s',0); countDown--;},1000);
+				var jump = setTimeout(function(){document.location.href="index.html"}, 5000) ;
+			}
+		};
 		xml.send(JSON.stringify(formData));
 	}
 }
@@ -85,3 +94,24 @@ var submit = document.querySelector('#submit');
 submit.addEventListener('click', ()=>{
 	validateForm();
 })
+
+// warning information box
+function warningBox(text, isFade){
+	var warningBox = document.querySelector('#warning');
+	var contentBox = document.querySelector('#warning strong');
+
+	contentBox.innerText = text;
+	warningBox.classList.add('active');
+
+	var toggleWarning = function(){
+		warningBox.classList.remove('active');
+	}
+
+	if(isFade == 0){
+		return;
+	}
+	else{
+		clearTimeout(toggleWarning);
+		setTimeout(toggleWarning, 2500);
+	}
+}

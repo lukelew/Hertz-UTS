@@ -5,10 +5,8 @@
 	session_start();
 
 	$content = trim(file_get_contents("php://input"));
-	$raw_data = json_decode($content);
+	$raw_data = json_decode($content, true);
 	$form_data = $raw_data[0];
-
-	print_r($form_data);
 
 	$to = $form_data['email'];
 	$subject = "Thanks for renting!";
@@ -55,6 +53,6 @@
 
 	mail($to,$subject,$message,$headers);
 	
-	echo "Mail Sent.";
+	echo "1";
 
 ?>
