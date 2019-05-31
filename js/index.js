@@ -27,7 +27,7 @@ function getCars(){
 }
 getCars();
 
-var hertz = new Vue({
+var hertz = new Vue({xs
 	el: '#car_list',
 	data: {
 		cars: carData

@@ -171,7 +171,7 @@ header.active .home .logo{
 }
 #car_list .car .info dl{
 	display: grid;
-	grid-template-column: 80px 80px;
+	grid-template-columns: 140px 80px;
 }
 #car_list .car .info dt{
 	grid-column: 1;
