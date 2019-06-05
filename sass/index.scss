@@ -58,6 +58,11 @@ header #to_cart{
 	border-radius: 30px;
 	transition: all .2s ease-in;
 }
+
+header #to_cart:hover{
+	color: #2610bb;
+}
+
 // header.active
 header.active{
 	position: fixed;
@@ -194,6 +199,9 @@ header.active .home .logo{
 	color: #fff;
 	background: #ccc;
 	cursor: pointer;
+}
+#car_list .car .rent_button:hover{
+	color: #2610bb;
 }
 #car_list .car .rent_button.active{
 	background-image: linear-gradient( 135deg, #5EFCE8 10%, #736EFE 100%);

@@ -64,6 +64,10 @@ header #to_cart {
   transition: all 0.2s ease-in;
 }
 
+header #to_cart:hover {
+  color: #2610bb;
+}
+
 header.active {
   position: fixed;
   top: 0;
@@ -219,6 +223,10 @@ header.active .home .logo {
   color: #fff;
   background: #ccc;
   cursor: pointer;
+}
+
+#car_list .car .rent_button:hover {
+  color: #2610bb;
 }
 
 #car_list .car .rent_button.active {
